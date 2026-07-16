@@ -1,2 +1,2 @@
 web/**  linguist-generated
-vendor/** linguist-vendored
+vendor/**/* linguist-vendored
