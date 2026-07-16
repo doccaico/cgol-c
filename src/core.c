@@ -7,7 +7,7 @@
 #include "core.h"
 
 
-void randomize_grid(struct Game *game) {
+void randomize_grid(Game *game) {
 	for (int y = 0; y < GRID_Y; y++) {
 		for (int x = 0; x < GRID_X; x++) {
 			game->grid[y][x] = ((f64)rand() / RAND_MAX < ALIVE_RATIO) ? STATE_ALIVE : STATE_DEAD;

@@ -6,14 +6,17 @@
 
 #include "ui.h"
 
+// typedef struct Game Game;
+// typedef struct Button Button;
+
 #include "raylib.h"
 
-enum StateType {
+typedef enum {
 	STATE_DEAD  = 0,
 	STATE_ALIVE = 1,
-};
+} StateType;
 
-struct Game {
+typedef struct Game {
 	u8 grid[GRID_Y][GRID_X];
 	u8 temp_grid[GRID_Y][GRID_X];
 	bool is_pause;
@@ -21,14 +24,16 @@ struct Game {
 	f32 delay;
 	f32 timer;
 	RenderTexture2D render_target;
-	struct Button btn_randomize;
-	struct Button btn_pause_and_unpause;
-	struct Button btn_speed_up;
-	struct Button btn_speed_down;
-	struct Button btn_rand_alive_color;
-	struct Button btn_rand_dead_color;
+	Button btn_randomize;
+	Button btn_pause_and_unpause;
+	Button btn_speed_up;
+	Button btn_speed_down;
+	Button btn_rand_alive_color;
+	Button btn_rand_dead_color;
 	Color alive_color;
 	Color dead_color;
-};
+} Game;
+
+void randomize_grid(Game *game);
 
 #endif // CORE_H

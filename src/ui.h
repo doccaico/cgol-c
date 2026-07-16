@@ -3,25 +3,27 @@
 
 #include "types.h"
 
-struct Game;
+typedef struct Game Game;
+// #include "core.h"
+
 
 #include "raylib.h"
 
-enum Button_Kind {
-	Randomize,
-	Pause_And_Unpause,
-	Rand_Alive_Color,
-	Rand_Dead_Color,
-	Speed_Up,
-	Speed_Down,
-};
+typedef enum {
+	BUTTON_RANDOMIZE,
+	BUTTON_PAUSE_AND_UNPAUSE,
+	BUTTON_RAND_ALIVE_COLOR,
+	BUTTON_RAND_DEAD_COLOR,
+	BUTTON_SPEED_UP,
+	BUTTON_SPEED_DOWN,
+} ButtonType;
 
-struct Button {
+typedef struct {
 	Rectangle bounds;
 	const char *text_str;
 	i32 text_width;
-};
+} Button;
 
-void ui_init(struct Game *game);
+void ui_init(Game *game);
 
 #endif // UI_H
