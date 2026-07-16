@@ -24,7 +24,7 @@ if "%~1" == "--debug" (
     set "FLAGS=%FLAGS% /DNDEBUG /D_NDEBUG"
 )
 
-cl src\main.c /Fo"%OUT_DIR_OBJ%\\" /Fe"%OUT_DIR_BIN%\\" %FLAGS% 
+cl src\main.c /Fo"%OUT_DIR_OBJ%\\" /Fe"%OUT_DIR_BIN%\\game_desktop.exe" %FLAGS% 
 if %ERRORLEVEL% neq 0 exit /b 1
 
 echo Desktop build created in %OUT_DIR%\bin
