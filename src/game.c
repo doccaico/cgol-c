@@ -14,7 +14,7 @@ Game main_game;
 
 static void update_cell_texture(Game *game) {
     // CPU上のイメージ(画素バッファ)のメモリポインタを直接取得
-    Color *pixels = (Color *)game->cell_image.data;
+    Color *pixels = game->cell_image.data;
 
     // 2重ループでピクセル配列に直接色を書き込む(超高速)
     for (i32 y = 0; y < GRID_Y; y++) {
