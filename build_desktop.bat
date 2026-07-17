@@ -16,7 +16,7 @@ set "C_FLAGS=%C_FLAGS% /Ivendor\raylib\include"
 
 set "L_FLAGS=/link"
 set "L_FLAGS=%L_FLAGS% /LIBPATH:vendor\raylib\bin\windows\msvc16"
-set "L_FLAGS=%L_FLAGS% /SUBSYSTEM:windows /ENTRY:mainCRTStartup /NODEFAULTLIB:libcmt /INCREMENTAL:no"
+set "L_FLAGS=%L_FLAGS% /NODEFAULTLIB:libcmt /INCREMENTAL:no"
 set "L_FLAGS=%L_FLAGS% raylib.lib opengl32.lib winmm.lib user32.lib shell32.lib gdi32.lib"
 
 if "%~1" == "--debug" (
@@ -26,6 +26,7 @@ if "%~1" == "--debug" (
 ) else if "%~1" == "--release" (
     set "C_FLAGS=%C_FLAGS% /O2 /MT /GF"
     set "C_FLAGS=%C_FLAGS% /DNDEBUG /D_NDEBUG"
+    set "L_FLAGS=%L_FLAGS% /SUBSYSTEM:windows /ENTRY:mainCRTStartup"
 )
 
 cl src\main.c /Fo"%OUT_DIR_OBJ%\\" /Fe"%OUT_DIR_BIN%\\game_desktop.exe" %C_FLAGS% %L_FLAGS%
