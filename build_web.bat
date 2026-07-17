@@ -13,7 +13,7 @@ set "FLAGS=%FLAGS% -sEXPORTED_RUNTIME_METHODS=['HEAPF32'] -sUSE_GLFW=3 -sWASM_BI
 if "%~1" == "--debug" (
     REM put something
 ) else if "%~1" == "--release" (
-    set "FLAGS=%FLAGS% -Os"
+    set "FLAGS=%FLAGS% -O3"
 )
 
 cmd /c emcc -o %OUT_DIR%\index.html src\main.c %FLAGS% %FILES% 
