@@ -30,9 +30,9 @@ $ call build_desktop.bat --debug && build\bin\game_desktop.exe
 # debug build
 $ build_web.bat --debug
 
-# go to localhost:8000 in your browser
-$ python -m http.server
-
 # release build
 $ build_web.bat --release
+
+# go to localhost:8000 in your browser
+$ python -m http.server
 ```
