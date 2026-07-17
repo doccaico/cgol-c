@@ -9,7 +9,7 @@
 #include "raylib.h"
 
 typedef enum {
-	STATE_DEAD  = 0,
+	STATE_DEAD = 0,
 	STATE_ALIVE = 1,
 } StateType;
 
@@ -21,6 +21,8 @@ typedef struct Game {
 	f32 delay;
 	f32 timer;
 	RenderTexture2D render_target;
+    Image cell_image;
+    Texture2D cell_texture;
 	Button btn_randomize;
 	Button btn_pause_and_unpause;
 	Button btn_speed_up;
