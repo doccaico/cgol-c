@@ -6,7 +6,7 @@
 #include "raylib.h"
 
 #define SPACE 4
-void ui_init(Game *game) {
+void init_ui(Game *game) {
     {
         const char *str = "(R)Randomize";
         game->btn_randomize = (Button){

@@ -12,7 +12,7 @@
 
 Game main_game;
 
-void draw_grid(Game *game) {
+static void draw_grid(Game *game) {
 	for (int y = 0; y < GRID_Y; y++) {
 		for (int x = 0; x < GRID_X; x++) {
 			Rectangle rec = {(f32)x * TILE_SIZE, (f32)y * TILE_SIZE, (f32)TILE_SIZE, (f32)TILE_SIZE};
@@ -25,7 +25,7 @@ void draw_grid(Game *game) {
 	}
 }
 
-void init_game(Game *game) {
+static void init_game(Game *game) {
 	game->is_pause = true;
 	game->is_btn_pressed_and_should_refresh = false;
 	game->delay = (f32)INITIAL_DELAY;
@@ -33,20 +33,22 @@ void init_game(Game *game) {
 	game->dead_color = BLACK;
 	game->render_target = LoadRenderTexture(WINDOW_WIDTH, WINDOW_HEIGHT);
 
-	ui_init(game);
+	init_ui(game);
 	randomize_grid(game);
 
 	BeginTextureMode(game->render_target);
 	draw_grid(game);
 	draw_ui(game);
 	EndTextureMode();
+
+    is_btn_pressed(game, BUTTON_FALSE);
 }
 
-void deinit_game(Game *game) {
+static void deinit_game(Game *game) {
     UnloadRenderTexture(game->render_target);
 }
 
-void update_game(void)
+static void update_game(void)
 {
     input_handling(&main_game);
 
@@ -67,8 +69,7 @@ void update_game(void)
 		BeginTextureMode(main_game.render_target);
 
 		// 時間経過による自動更新のときだけ、世代を進める
-        // TODO
-		// if (should_refresh) update_grid(&main_game);
+		if (should_refresh) update_grid(&main_game);
 
 		draw_grid(&main_game);
 		draw_ui(&main_game);
@@ -77,6 +78,8 @@ void update_game(void)
 	}
 
     BeginDrawing();
+        ClearBackground(BTN_BG_COLOR);
+
         Rectangle src_rec = {
             0, 0, (f32)main_game.render_target.texture.width, (f32)-main_game.render_target.texture.height};
         Rectangle dest_rec = {0, 0, WINDOW_WIDTH, WINDOW_HEIGHT};

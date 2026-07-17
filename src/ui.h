@@ -16,6 +16,7 @@ typedef enum {
 	BUTTON_RAND_DEAD_COLOR,
 	BUTTON_SPEED_UP,
 	BUTTON_SPEED_DOWN,
+    BUTTON_FALSE,
 } ButtonType;
 
 typedef struct {
@@ -24,6 +25,7 @@ typedef struct {
 	i32 text_width;
 } Button;
 
-void ui_init(Game *game);
+void init_ui(Game *game);
+void draw_ui(Game *game);
 
 #endif // UI_H

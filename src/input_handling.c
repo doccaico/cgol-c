@@ -1,4 +1,5 @@
 #include "defines.h"
+#include "utils.h"
 
 #include "core.h"
 
@@ -27,7 +28,8 @@ bool is_btn_pressed(Game *game, ButtonType btn) {
                 bounds = game->btn_rand_dead_color.bounds;
                 break;
             default:
-                return false;
+                NODEFAULT;
+                break;
         }
         Vector2 mouse_pos = GetMousePosition();
         if (CheckCollisionPointRec(mouse_pos, bounds)) {

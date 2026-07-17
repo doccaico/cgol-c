@@ -35,5 +35,6 @@ typedef struct Game {
 } Game;
 
 void randomize_grid(Game *game);
+void update_grid(Game *game);
 
 #endif // CORE_H

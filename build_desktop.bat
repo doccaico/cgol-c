@@ -21,7 +21,7 @@ if "%~1" == "--debug" (
 
 ) else if "%~1" == "--release" (
     set "FLAGS=/O2 /MT /GF"
-    set "FLAGS=%FLAGS% /DNDEBUG /D_NDEBUG"
+    set "FLAGS=/DNDEBUG /D_NDEBUG %FLAGS%"
 )
 
 cl src\main.c /Fo"%OUT_DIR_OBJ%\\" /Fe"%OUT_DIR_BIN%\\game_desktop.exe" %FLAGS% 

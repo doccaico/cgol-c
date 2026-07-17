@@ -26,7 +26,7 @@
 #define BTN_FONT_SIZE 18
 #define BTN_AREA_X 0
 #define BTN_AREA_Y (WINDOW_HEIGHT - (BTN_HEIGHT * 2))
-#define BTN_BG_COLOR Color{30, 30, 45, 255}
+#define BTN_BG_COLOR (Color){30, 30, 45, 255}
 #define BTN_LINE_COLOR GRAY
 #define BTN_TEXT_COLOR WHITE
 
