@@ -6,9 +6,6 @@
 
 #include "ui.h"
 
-// typedef struct Game Game;
-// typedef struct Button Button;
-
 #include "raylib.h"
 
 typedef enum {

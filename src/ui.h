@@ -3,11 +3,9 @@
 
 #include "types.h"
 
-typedef struct Game Game;
-// #include "core.h"
-
-
 #include "raylib.h"
+
+typedef struct Game Game;
 
 typedef enum {
 	BUTTON_RANDOMIZE,
