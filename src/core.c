@@ -25,8 +25,8 @@ static i32 count_neighbors(u8 grid[GRID_Y][GRID_X], i32 x, i32 y) {
 }
 
 void randomize_grid(Game *game) {
-	for (int y = 0; y < GRID_Y; y++) {
-		for (int x = 0; x < GRID_X; x++) {
+	for (i32 y = 0; y < GRID_Y; y++) {
+		for (i32 x = 0; x < GRID_X; x++) {
 			game->grid[y][x] = ((f64)rand() / RAND_MAX < ALIVE_RATIO) ? STATE_ALIVE : STATE_DEAD;
 		}
 	}
@@ -45,11 +45,5 @@ void update_grid(Game *game) {
 			}
 		}
 	}
-	// 次世代のデータを現在のデータにコピー
-	// for (i32 y = 0; y < GRID_Y; y++) {
-	// 	for (i32 x = 0; x < GRID_X; x++) {
-	// 		game->grid[y][x] = game->temp_grid[y][x];
-	// 	}
-	// }
     memcpy(game->grid, game->temp_grid, sizeof(game->grid));
 }

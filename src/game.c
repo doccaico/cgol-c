@@ -13,8 +13,8 @@
 Game main_game;
 
 static void draw_grid(Game *game) {
-	for (int y = 0; y < GRID_Y; y++) {
-		for (int x = 0; x < GRID_X; x++) {
+	for (i32 y = 0; y < GRID_Y; y++) {
+		for (i32 x = 0; x < GRID_X; x++) {
 			Rectangle rec = {(f32)x * TILE_SIZE, (f32)y * TILE_SIZE, (f32)TILE_SIZE, (f32)TILE_SIZE};
 			if (game->grid[y][x] == STATE_ALIVE) {
 				DrawRectangleRec(rec, game->alive_color);

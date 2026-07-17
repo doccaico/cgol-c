@@ -1,7 +1,9 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-#if !defined(PLATFORM_WEB)
+#if defined(PLATFORM_WEB)
+# define NODEFAULT {}
+#else
 
 #ifdef DEBUG
 // This code is supposed to be unreachable, so assert
@@ -10,10 +12,6 @@
 #else
 # define NODEFAULT __assume(0)
 #endif
-
-#else
-
-# define NODEFAULT {}
 
 #endif
 
